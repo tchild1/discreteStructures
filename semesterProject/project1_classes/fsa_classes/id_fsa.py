@@ -1,0 +1,30 @@
+from .fsa import FSA
+from typing import Callable
+
+class IdFSA(FSA):
+    def __init__(self):
+        FSA.__init__(self, "ID")
+        self.accept_states.add(self.S1)
+    
+    def S0(self) -> Callable:
+        next_state = None
+        char = ord(self.input_string[self.num_chars_read])
+        if (not((65 <= char <= 90) or (97 <= char <= 122))):
+            next_state = self.s_err
+        else:
+            next_state = self.S1
+        self.num_chars_read += 1
+        return next_state
+    
+    def S1(self):
+        next_state = None
+        next_state = self.S1
+        self.num_chars_read += 1
+        return next_state
+    
+    def s_err(self):
+        next_state = self.s_err
+        self.num_chars_read +=1
+        return next_state
+    
+    

@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Bucket 80",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test.py --no-header --no-summary -s -v -vv --bucket=80",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 80
+    },
+    {
+      "name": "Bucket 100",
+      "setup": "sudo -H pip3 install pytest",
+      "run": "pytest test.py --no-header --no-summary -s -v -vv --bucket=100",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    }
+  ]
+}
